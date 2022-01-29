@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: "Nagy"
+  given-names: "Ben"
+  orcid: "https://orcid.org/0000-0002-5214-7595"
+type: article
+title: "Some Stylometric Remarks on Ovid’s _Heroides_ and the _Epistula Sapphus_"
+version: 1.0.0
+doi: tba
+date-released: 2022-1-29
+url: "https://github.com/bnagy/heroides-paper"
