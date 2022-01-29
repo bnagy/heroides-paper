@@ -1,6 +1,6 @@
 # heroides-paper [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-LaTeX and figures for the preprint 'Some Stylometric Remarks On Ovid’s _Heroides_ And The _Epistula Sapphus_'.
+LaTeX and figures for the preprint 'Some Stylometric Remarks on Ovid’s _Heroides_ and the _Epistula Sapphus_'.
 
 The compiled [paper](paper/es.pdf) is also included.
 
@@ -19,9 +19,10 @@ This article aims to contribute to two well-worn areas of debate in classical La
 If you are also playing the Fun Academia Game, please help me refill my Academia Hearts.
 
 ```
-@article{nagy_rhyme_2021,
+@article{nagy_heroides_2022,
     author          = "Nagy, Ben",
-    title           = "Preprint: {S}ome Stylometric Remarks On {O}vid’s {H}eroides And The {E}pistula {S}apphus",
+    title           = "Preprint: {S}ome Stylometric Remarks On 
+                       {O}vid’s {H}eroides And The {E}pistula {S}apphus",
     year            = "2022",
     publisher       = {Zenodo},
     version         = {v1.0.0},
