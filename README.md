@@ -1,6 +1,6 @@
 # heroides-paper [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-LaTeX and figures for the preprint 'Some Stylometric Remarks On Ovid’s _Heroides_ And The _Epistula Sapphus_'.
+LaTeX and figures for the preprint 'Some Stylometric Remarks on Ovid’s _Heroides_ and the _Epistula Sapphus_'.
 
 The compiled [paper](paper/es.pdf) is also included.
 
