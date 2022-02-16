@@ -1,8 +1,9 @@
-# heroides-paper [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+# heroides-paper [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) [![DOI](https://zenodo.org/badge/453310367.svg)](https://zenodo.org/badge/latestdoi/453310367)
+
 
 LaTeX and figures for the preprint 'Some Stylometric Remarks on Ovid’s _Heroides_ and the _Epistula Sapphus_'.
 
-The compiled [paper](paper/es.pdf) is also included.
+The compiled [preprint](paper/es.pdf) is also included.
 
 Further information will be added if the paper is accepted for publication.
 
@@ -26,7 +27,7 @@ If you are also playing the Fun Academia Game, please help me refill my Academia
     year            = "2022",
     publisher       = {Zenodo},
     version         = {v1.0.0},
-    doi             = {TBA},
+    doi             = {10.5281/zenodo.6099890},
     howpublished    = "\url{https://github.com/bnagy/heroides-paper}"
 }
 ```
