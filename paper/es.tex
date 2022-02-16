@@ -626,20 +626,20 @@ an nisi legisses auktoris nomina sappus\\
   \centering
   \subfigure[Accuracy by Author]{
     \includegraphics[width=0.45\textwidth]
-    {/Users/ben/silius/ep15/ngram_acc_auth.pdf}
+    {figures/ngram_acc_auth.pdf}
   }
   \qquad
   \subfigure[Accuracy by Work]{
     \includegraphics[width=0.45\textwidth]
-    {/Users/ben/silius/ep15/ngram_acc_work.pdf}
+    {figures/ngram_acc_work.pdf}
   }
 \end{figure*}
 
 As outlined above, the lexico-grammatical analysis is conducted using TF-IDF
 scaled frequency counts for character 2-, 3-, and 4-grams. This results in a
-high dimensional feature space (something over 30,000 features); in such
-environments some care needs to be taken. For hugely overspecified systems,
-the `curse of dimensionality' may manifest in a variety of different ways
+high dimensional feature space (about 30,000 features); in such environments
+some care needs to be taken. For hugely overspecified systems, the `curse of
+dimensionality' may manifest in a variety of different ways
 \cite{zimek_etal}---in this case, some classification models perform poorly,
 and dimension-reduction methods like t-SNE are unreliable unless the data is
 first reduced by some other means. To avoid this, the \emph{n}-gram data is
@@ -660,7 +660,7 @@ scikit-learn \texttt{NearestCentroid()} using an 80/20 test/train split.
 Training data is TF-IDF transformed 2-, 3- and 4-gram frequencies for each
 work, reduced to 50 dimensions with SVD. }
 \label{fig:cm_ngrams}
-\includegraphics[width=0.45\textwidth]{/Users/ben/silius/ep15/cm_ngrams_crop.pdf}
+\includegraphics[width=0.45\textwidth]{figures/cm_ngrams-crop.pdf}
 \end{figure}
 
 First we consider the general accuracy of the supervised classification
@@ -687,8 +687,8 @@ expected---both works are exilic and share many themes) and so the `true'
 accuracy is somewhat better than the numbers in Fig. \ref{fig:ngram_acc} would
 suggest.%
 %
-    \footnote{Eliminating \emph{Tristia} and \emph{Ex Ponto} from the
-    corpus increases per-work accuracy by about 10\%.}
+    \footnote{Eliminating just \emph{Ex Ponto} from the corpus increases
+    per-work accuracy by about 10\% for both the LSA and poetic models.}
 %
 
 \subsection{Cluster Analysis}
@@ -702,15 +702,15 @@ suggest.%
   data from 500 subsets of 15 features. Layout via Fruchterman-Reingold,
   thicker edges are stronger links.]{
     \includegraphics[height=0.5\textheight,keepaspectratio]
-    {/Users/ben/silius/ep15/ele_ngrams_bct-crop.pdf}
+    {figures/ele_ngrams_bct-crop.pdf}
   }
   \subfigure[UMAP Projection (metric=euclidean)]{
     \includegraphics[width=0.48\textwidth,keepaspectratio]
-    {/Users/ben/silius/ep15/ele_ngrams_umap-crop.pdf}
+    {figures/ele_ngrams_umap-crop.pdf}
   }
   \subfigure[t-SNE Projection (metric=euclidean, perplexity=10)]{
     \includegraphics[width=0.48\textwidth,keepaspectratio]
-    {/Users/ben/silius/ep15/ele_ngrams_tsne-crop.pdf}
+    {figures/ele_ngrams_tsne-crop.pdf}
   }
 \end{figure*}
 
@@ -736,9 +736,9 @@ although Tibullus maintains some stylistic separation. Ovid's \emph{Tristia}
 and \emph{Ex Ponto} mostly form their own cluster, and we can see that the
 \emph{Heroides} are stylistically distinct, with very strong internal links,
 most particularly in the paired Double \emph{Heroides}; 16/17, 18/19 and
-20/21. Letter 15, the \emph{ES}, appears right in the middle of the
-\emph{Heroides} cluster, giving us no cause to question its authenticity. A
-more or less identical picture arises from the two other algorithms, Figs
+20/21. Letter 15, the \emph{ES}, clusters neatly with the rest of the
+\emph{Heroides}, giving no cause to question its authenticity. A more or less
+identical picture arises from the two other algorithms, Figs
 \ref{fig:ngram_cluster}(b) and \ref{fig:ngram_cluster}(c)---The \emph{Amores}
 mix with Propertius, Tibullus is a little more distinctive, and the
 \emph{Heroides} form a tight group.
@@ -808,12 +808,12 @@ stylistic signal.
   \centering
   \subfigure[Accuracy by Author]{
     \includegraphics[width=0.45\textwidth]
-    {/Users/ben/silius/ep15/poetics_acc_auth-crop.pdf}
+    {figures/poetic_acc_auth-crop.pdf}
   }
   \qquad
   \subfigure[Accuracy by Work]{
     \includegraphics[width=0.45\textwidth]
-    {/Users/ben/silius/ep15/poetics_acc_work-crop.pdf}
+    {figures/poetic_acc_work-crop.pdf}
   }
 \end{figure*}
 
@@ -823,7 +823,7 @@ stylistic signal.
 that a y-axis work was classified as the given x-axis work. Classifier is
 scikit-learn \texttt{NearestCentroid()} using an 80/20 test/train split.}
 \label{fig:cm_poetics}
-\includegraphics[width=0.45\textwidth]{/Users/ben/silius/ep15/cm_poetics-crop.pdf}
+\includegraphics[width=0.45\textwidth]{figures/cm_poetics-crop.pdf}
 \end{figure}
 
 As before, the first task is to establish that the features are able to
@@ -835,17 +835,16 @@ accuracy by Work (the most important figure in this context) is a little
 lower---although it should hardly be surprising that it becomes more difficult
 to identify the theme of a poem if one is forbidden from reading the actual
 words! It is important to note, however, that the accuracy by Author is
-actually higher in the poetic models than the previous LSA models. At the risk
-of subjectivity, this seems to suggest that the underlying performance in
-terms of identifying authorial style is stronger for the models that use
-poetic features, but that the additional information derived from lexicon and
-topic in the LSA models gives the per-Work accuracy an `unfair' boost. In the
-confusion matrix (Fig. \ref{fig:cm_poetics}) we see again that the
-\emph{Heroides} are quite distinctive in their style, while Ovid's
-\emph{Tristia} and \emph{Ex Ponto} are easily confused. Overall, particularly
-considering the extremely good performance when identifying authors, the
-poetic features seem at least as useful and, based on the clustering results,
-are probably more so.
+slightly higher in the poetic models than the previous LSA models. At the risk
+of subjectivity, this seems to suggest that the underlying performance of the
+models that use poetic features is just as strong, but that the additional
+information derived from lexicon and topic in the LSA models gives the
+per-Work accuracy an `unfair' boost. In the confusion matrix (Fig.
+\ref{fig:cm_poetics}) we see again that the \emph{Heroides} are quite
+distinctive in their style, while Ovid's \emph{Tristia} and \emph{Ex Ponto}
+are easily confused. Overall, particularly considering the extremely good
+performance when identifying authors, the poetic features seem at least as
+useful and, based on the clustering results, are probably more so.
 
 \subsection{Feature-Wise Analysis}
 
@@ -869,8 +868,8 @@ the Ovidian works (164 poems), the Mahalanobis distance was calculated for
 every poem in the corpus, representing the degree to which the poems conform
 to Ovid's `typical' style. From there, since the (squared) Mahalanobis
 distance is distributed according to $\chi^2$, a \emph{P}-value can be
-calculated. The method is powerful. Of the (102) non-Ovidian works, only five
-would be accepted as Ovidian style at the 99\% confidence level.%
+calculated. The method is reasonably powerful. Of the (102) non-Ovidian works,
+only five would be accepted as Ovidian style at the 99\% confidence level.%
 %
     \footnote{In order of decreasing similarity: Prop. 4.11, 4.6, 3.24, 4.4;
     Tib. 1.4.}
@@ -904,15 +903,15 @@ essentially, Ovid's talent, as well as an extraordinary gift for imitation.
   thicker edges are stronger links. \emph{Heroides} enlarged and numbered,
   works by Propertius numbered by Book.]{
     \includegraphics[height=0.48\textheight,keepaspectratio]
-    {/Users/ben/silius/ep15/ele_metre_bct-crop.pdf}
+    {figures/ele_metre_bct-crop.pdf}
   }
   \subfigure[UMAP Projection (metric=euclidean)]{
     \includegraphics[width=0.48\textwidth,keepaspectratio]
-    {/Users/ben/silius/ep15/ele_metre_umap-crop.pdf}
+    {figures/ele_metre_umap-crop.pdf}
   }
   \subfigure[t-SNE Projection (metric=euclidean, perplexity=12)]{
     \includegraphics[width=0.48\textwidth,keepaspectratio]
-    {/Users/ben/silius/ep15/ele_metre_tsne-crop.pdf}
+    {figures/ele_metre_tsne-crop.pdf}
   }
 \end{figure*}
 
@@ -945,12 +944,12 @@ the former and the Double letters with the latter.
   \centering
   \subfigure[SVM (relative distance from hyperplanes)]{
     \includegraphics[width=0.45\textwidth]
-    {/Users/ben/silius/ep15/ampont_svm-crop.pdf}
+    {figures/ampont_svm-crop.pdf}
   }
   \qquad
   \subfigure[Nearest centroid (Euclidean distance)]{
     \includegraphics[width=0.45\textwidth]
-    {/Users/ben/silius/ep15/ampont_nc-crop.pdf}
+    {figures/ampont_nc-crop.pdf}
   }
 \end{figure*}
 
@@ -1091,16 +1090,16 @@ questioned.%
     \footnote{\citeA{kenney1979two} examines the passages in detail. He
     considers the literary arguments against to be insufficient.}
 %
-These sections are transmitted via a single, late (1477), and printed witness.
-Since the sections are long enough to be analysed as a unit with the
-techniques used here, they could be isolated and examined somehow. However, my
-view---which I have not formally tested---is that a hundred or so lines of
-foreign material (a little less than a third and a half of the poems
-respectively) would certainly have altered the stylistic fingerprint of those
-poems at least to the point where they appeared unusual, and so I accept them
-with only the slightest reservation. In other Ovidian matters, above I
-mentioned \emph{Amores} 3.5, which seems worth investigating further, since
-the debate has persisted into this century.%
+These sections are transmitted via a single witness which is late (1477), and
+mechanically printed. Since the sections are long enough to be analysed as a
+unit with the techniques used here, they could be isolated and examined
+somehow. However, my view---which I have not formally tested---is that a
+hundred or so lines of foreign material (a little less than a third and a half
+of the poems respectively) would certainly have altered the stylistic
+fingerprint of those poems at least to the point where they appeared unusual,
+and so I accept them with only the slightest reservation. In other Ovidian
+matters, above I mentioned \emph{Amores} 3.5, which seems worth investigating
+further, since the debate has persisted into this century.%
 %
     \footnote{E.g. \citeA{mckeown2013authenticity}, which also serves as a
     fine synthesis of the issues.}
