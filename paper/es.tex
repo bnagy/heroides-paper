@@ -61,9 +61,9 @@
 
 % Section title spacing  options
 \usepackage{titlesec}
-\titlespacing*{\section}{0pt}{0.5\baselineskip}{0.35\baselineskip}
-\titlespacing*{\subsection}{0pt}{0.5\baselineskip}{0.25\baselineskip}
-\titlespacing*{\subsubsection}{0pt}{0.5\baselineskip}{0.25\baselineskip}
+\titlespacing*{\section}{0pt}{0.4\baselineskip}{0.35\baselineskip}
+\titlespacing*{\subsection}{0pt}{0.4\baselineskip}{0.25\baselineskip}
+\titlespacing*{\subsubsection}{0pt}{0.4\baselineskip}{0.25\baselineskip}
 
 \usepackage{changepage}
 
@@ -553,6 +553,14 @@ grammatical inflection, allowing authorial preferences to be extracted in both
 domains. Once again, the classification accuracy shows that this process
 extracts enough stylistic signal to reliably separate both authors and works.
 
+Finally, I note that both the complete corpus along with full implementations
+of the various analyses are freely available at the associated code repository
+\cite{nagy_heroides_2022}.%
+%
+    \footnote{The reproduction data is presented in a series of code
+    notebooks, using Python scikit-learn \cite{scikit-learn} with
+    visualisation via R and ggplot2 \cite{ggplot}.}
+%
 \section{The Corpus: `Shorter' Elegy}
 
 \begin{table}
@@ -1140,6 +1148,7 @@ HS2 / 02931.
 %%%%%%%%%%%%%%   Bibliography   %%%%%%%%%%%%%%
 \FloatBarrier
 \normalsize
+\clearpage
 \bibliography{digilat}
 
 %%%%%%%%%%%%  Supplementary Figures  %%%%%%%%%%%%
