@@ -1,6 +1,7 @@
 % !TeX encoding = UTF-8
 
 % \documentclass{article} % One-column default
+% use older latex until xwatermark bug is fixed 10/3/22
 \RequirePackage[2020-02-02]{latexrelease}
 \documentclass[twocolumn, switch, a4paper]{article} % Method A for two-column formatting
 
@@ -90,8 +91,8 @@
 
 % DSH submission requirements
 \usepackage{setspace} % spacing macros
-% \doublespace
-% \pagenumbering{gobble} % no page numbers for DSH
+%\onehalfspacing
+%\pagenumbering{gobble} % no page numbers for DSH
 % \setlength{\parindent}{0.3in} % indent paras with no skip (gross)
 % \setlength{\parskip}{0em}
 %\addtolength{\intextsep}{-0.5in}
@@ -147,7 +148,7 @@ complications in this label) works of the \emph{Amores} and the late works of th
 \emph{Ex Ponto}, the evidence supports sequential composition---meaning that
 the \emph{ES} is correctly placed---and, further, supports the growing
 consensus that the double letters were composed significantly later, in
-exile.\footnotemark
+exile.
 
 \textbf{Keywords}: stylometry, Latin,
 poetics, computational linguistics, authorship attribution
@@ -161,13 +162,7 @@ poetics, computational linguistics, authorship attribution
 
 
 %%%%%%%%%%%%%%%  Main text   %%%%%%%%%%%%%%%
-% \linenumbers
-    \footnotetext{Parts of this article were given as a paper in the seminar
-    series of the department of Classics, Archaeology and Ancient History at
-    the University of Adelaide in October 2021, and I am grateful to the
-    participants for their useful comments and advice. Further thanks are due
-    to Prof. Peter Davis for a variety of suggestions that have undoubtedly
-    improved the article.}
+ %\linenumbers
 
 \section{Introduction}
 
@@ -278,9 +273,9 @@ believe it to be genuine---the fact that \emph{Ovid himself tells us he wrote
 it}. The relevant passage%
 %
     \footnote{In fact there are two references to Sappho in \emph{Am}. 2.18; I
-    do not focus on the second because it might be thought to refer to one of
-    the works of Sabinus, who was evidently inspired by Ovid's letters to
-    compose some male replies.}
+    do not focus on the second because (although I reject this argument) it
+    might be thought to refer one of the works of Sabinus, who was evidently
+    inspired by Ovid's letters to compose some male replies.}
 %
 is from \emph{Amores} 2.18:
 \begin{adjustwidth}{0.07\linewidth}{0.07\linewidth}
@@ -480,16 +475,16 @@ because a particular editor felt them to be unworthy of the author, subsidiary
 have received much attention of this kind.
 \end{adjustwidth}
 
-\citeA{kenney1999anomaly}, too, begins an article on the Double
-\emph{Heroides} with an admonition to ``beware of hypercriticism'', noting in
-particular that ``[s]ingularity is not in itself a ground for suspicion. It
-makes no sense to require that a writer shall never do anything unless he does
-it at least twice.'' From a statistical point of view, the problem with
-focusing on rare events is \emph{variance}. If I knew the average number of
-passengers on a London bus, I would find many `anomalies' as I wandered the
-city---buses completely empty, or packed full. However, if I knew the average
-number of commuters for the entire city on Mondays, that number would be much
-more reliable as a benchmark for unusual activity. This, then, is the idea
+\citeA{kenney1999anomaly}, too, begins an article on the Double \emph{Heroides}
+with an admonition to ``beware of hypercriticism'', noting in particular that
+``[s]ingularity is not in itself a ground for suspicion. It makes no sense to
+require that a writer shall never do anything unless he does it at least
+twice.'' From a statistical point of view, the problem with focusing on rare
+events is \emph{variance}. If I knew the average number of passengers on a
+London bus, I would find many `anomalies' as I wandered the city---buses
+completely empty, or packed full. However, if I knew the average number of
+commuters for the entire city on Mondays, that number would be much more
+reliable as a city-wide benchmark for unusual activity. This, then, is the idea
 behind multivariate analysis, and the reason to focus not on rare events and
 exceptions but on stylistic events that happen in every line.
 
@@ -537,19 +532,18 @@ poems) are small. Practitioners used to working with modern prose might be
 uncomfortable with samples that are smaller than a few thousand words---in our
 case, the samples are as small as twenty lines (less than two hundred words).
 Based on the classification accuracy, however, there is very good reason to
-believe that we can still draw sensible conclusions. Latin poetry is
-remarkably stylistically \emph{dense}. A single line of verse is a complex
-balance between word choice, metre, ictus, the position of the caesurae, the
-effect of dactylic versus spondaic feet, the interplay of sound within the
-line and between lines \dots the list goes on; and with each conscious or
-unconscious choice the poet leaves stylistic fingerprints. In the
-lexico-grammatical analysis, I focus on text \emph{n}-grams, since this too
-allows us to extract more information from small samples. For a
-morphologically inflected language, a `standard' BOW (bag of words) analysis,
-as one might do for English prose, would require that words be lemmatized,
-which entails a loss of information. \emph{N}-grams, by contrast, break the
-words into smaller chunks (eg `habet' produces the 3-grams `hab', `abe' and
-`bet') which captures information both on the lemma as well as on the
+believe that we can still draw sensible conclusions. Latin poetry is remarkably
+stylistically \emph{dense}. A single line of verse is a complex balance between
+word choice, metre, ictus, the position of the caesurae, the effect of dactylic
+versus spondaic feet, the interplay of sound within the line and between lines
+\dots the list goes on; and with each conscious or unconscious choice the poet
+leaves stylistic fingerprints. In the lexico-grammatical analysis, I focus on
+text \emph{n}-grams, since this too allows us to extract more information from
+small samples. For a morphologically inflected language, a `standard' BOW (bag
+of words) analysis, as one might do for English prose, would require that words
+be lemmatized, which entails a loss of information. \emph{N}-grams, by contrast,
+break the words into smaller chunks (e.g. `habet' produces the 3-grams `hab',
+`abe' and `bet') which captures information both on the lemma as well as on the
 grammatical inflection, allowing authorial preferences to be extracted in both
 domains. Once again, the classification accuracy shows that this process
 extracts enough stylistic signal to reliably separate both authors and works.
@@ -676,25 +670,24 @@ First we consider the general accuracy of the supervised classification
 algorithms. As mentioned, this is presented as a proxy for the general utility
 of the feature universe; a way of estimating how well authorial style is
 reflected in these features. Since the size of the poems is a potential cause
-for concern, Fig. \ref{fig:ngram_acc} examines the classification accuracy by
-both work and by author, when considering poems longer than a certain
-size---the hypothesis being that accuracy should improve if the analysis is
-restricted to larger poems. As can be seen, this is not the case. In this
-instance it appears that increasing the size threshold lowers the number of
-poems available for training, damaging the overall accuracy. Thus, a
-conservative minimum size of 20 lines was chosen for the cluster analysis,
-eliminating only eight poems. Next, Fig. \ref{fig:cm_ngrams} shows the
-confusion matrix for the \texttt{NearestCentroid} classifier (by Work). This
-shows which works are consistently well-classified over many test-train
-splits, implying that they are fairly distinctive. As can be seen, the
-\emph{Heroides} (Ep.) are perfectly classified; they can be reliably be
-distinguished from Ovid's other works as well as from the works of other
-authors. It is also apparent from the confusion matrix that the main source of
-inaccuracy in the model is the stylistic similarity between Ovid's
-\emph{Tristia} (Tr.) and \emph{Ex Ponto} (Pont.) (this is to be
-expected---both works are exilic and share many themes) and so the `true'
-accuracy is somewhat better than the numbers in Fig. \ref{fig:ngram_acc} would
-suggest.%
+for concern, Fig. \ref{fig:ngram_acc} examines the classification accuracy both
+by work and by author, when considering poems longer than a certain size---the
+hypothesis being that accuracy should improve if the analysis is restricted to
+larger poems. As can be seen, this is not the case. In this instance it appears
+that increasing the size threshold lowers the number of poems available for
+training, damaging the overall accuracy. Thus, a conservative minimum size of 20
+lines was chosen for the cluster analysis, eliminating only eight poems. Next,
+Fig. \ref{fig:cm_ngrams} shows the confusion matrix for the
+\texttt{NearestCentroid} classifier (by Work). This shows which works are
+consistently well-classified over many test-train splits, implying that they are
+fairly distinctive. As can be seen, the \emph{Heroides} (Ep.) are perfectly
+classified; they can be reliably be distinguished from Ovid's other works as
+well as from the works of other authors. It is also apparent from the confusion
+matrix that the main source of inaccuracy in the model is the stylistic
+similarity between Ovid's \emph{Tristia} (Tr.) and \emph{Ex Ponto} (Pont.) (this
+is to be expected---both works are exilic and share many themes) and so the
+`true' accuracy is somewhat better than the numbers in Fig. \ref{fig:ngram_acc}
+would suggest.%
 %
     \footnote{Eliminating just \emph{Ex Ponto} from the corpus increases
     per-work accuracy by about 10\% for both the LSA and poetic models.}
@@ -951,7 +944,8 @@ the former and the Double letters with the latter.
   interval.}
   \label{fig:ampont}
   \centering
-  \subfigure[SVM (relative distance from hyperplanes)]{
+  \subfigure[SVM (relative confidence margins, based on distance from respective
+  hyperplanes)]{
     \includegraphics[width=0.45\textwidth]
     {figures/ampont_svm-crop.pdf}
   }
@@ -1066,7 +1060,7 @@ career. There is significant potential here for future work.
  \ref{sec: poetic}) examined technical minutiae of prosody and metre that are
  standard considerations in classical philology; the innovation lies in their
  automatic extraction and their treatment with modern multivariate analysis
- and statistics. The consideration of some stylistic features related to rhyme
+ and statistics. The inclusion of some stylistic features related to rhyme
  is perhaps controversial, but my recent research \cite{nagy_rhyme_2022} has
  established that there is authorial signal in this domain. The poetic models
  performed very strongly, particularly in terms of differentiating authors,
@@ -1146,10 +1140,26 @@ and divisive Ovidian collection.
 This work was supported by the Polish Academy of Sciences Grant 2020/39 / O /
 HS2 / 02931.
 
+Parts of this article were given as a paper in the seminar series of the
+department of Classics, Archaeology and Ancient History at the University of
+Adelaide in October 2021, and I am grateful to the participants for their useful
+comments and advice. Further thanks are due to Prof. Peter Davis for a variety
+of suggestions that have undoubtedly improved the article, and for piquing my
+interest in \emph{Am} 3.5.
+
+Dr J. Stover, editor of the forthcoming \emph{Oxford Guide to the Transmission
+of the Latin Classics}, provided feedback on the draft, and was kind enough to
+send me Prof. J. B. Hall's entry on the \emph{Heroides}. I note with
+satisfaction that Hall shares the growing consensus that all 21 letters are
+genuine. Dr Stover, also a computational stylometrist (e.g.
+\citeA{stover_kestemont_2016}), further informs me (pers. comm.) that his own
+independent analysis had produced results consonant with those here.
+
 %%%%%%%%%%%%%%   Bibliography   %%%%%%%%%%%%%%
 \FloatBarrier
 \normalsize
-\clearpage
+%\clearpage
+\singlespacing
 \bibliography{digilat}
 
 %%%%%%%%%%%%  Supplementary Figures  %%%%%%%%%%%%
