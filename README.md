@@ -17,7 +17,7 @@ This article aims to contribute to two well-worn areas of debate in classical La
 
 ## UPDATE (Jan 13, 2023): Published Version
 
-The peer reviewed version of this paper has now been published in Digital Scholarship in the Humanities (OUP) and in most cases you should prefer the [published version](https://doi.org/10.1093/llc/fqac098).
+The peer reviewed version of this paper has now been published in Digital Scholarship in the Humanities (OUP) and in most cases you should prefer the [published version](https://doi.org/10.1093/llc/fqac098). If you want access and don't have it through your institution feel free to contact me. :)
 
 ## Citation
 
