@@ -24,15 +24,16 @@ The peer reviewed version of this paper has now been published in Digital Schola
 If you are also playing the Fun Academia Game, please help me refill my Academia Hearts.
 
 ```
-@article{nagy_heroides_2022,
-    author          = "Nagy, Ben",
-    title           = "Preprint: {S}ome Stylometric Remarks On 
-                       {O}vid’s {H}eroides And The {E}pistula {S}apphus",
-    year            = "2022",
-    publisher       = {Zenodo},
-    version         = {v1.0.0},
-    doi             = {10.5281/zenodo.6099890},
-    howpublished    = "\url{https://github.com/bnagy/heroides-paper}"
+@article{10.1093/llc/fqac098,
+    author = {Nagy, Benjamin},
+    title = "{Some stylometric remarks on Ovid’s Heroides and the Epistula Sapphus}",
+    journal = {Digital Scholarship in the Humanities},
+    year = {2023},
+    month = {01},
+    issn = {2055-7671},
+    doi = {10.1093/llc/fqac098},
+    url = {https://doi.org/10.1093/llc/fqac098},
+    eprint = {https://academic.oup.com/dsh/advance-article-pdf/doi/10.1093/llc/fqac098/48693161/fqac098.pdf},
 }
 ```
 
