@@ -5,9 +5,7 @@ LaTeX and figures for the preprint 'Some Stylometric Remarks on Ovid’s _Heroid
 
 The compiled [preprint](paper/es.pdf) is also included.
 
-Further information will be added if the paper is accepted for publication.
-
-*WARNING* This is a preprint, which has not been peer reviewed. The final paper will almost certainly include changes, which can sometimes be quite substantial. The results listed are also subject to change. For bonus points, the repro code is all included--prove me wrong!
+*WARNING* This is a preprint, which has not been peer reviewed. Please refer to / cite the Version of Record (see below).
 
 LaTeX 'preprint' style from [here](https://github.com/brenhinkeller/preprint-template.tex)
 
